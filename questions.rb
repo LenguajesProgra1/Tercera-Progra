@@ -50,14 +50,13 @@ class LinkedList
             current = current.next_node
     end
 
-##	
-#	def fillList
-#		txt = File.new("preguntas.txt","r")				
-		#preg = txt.readline
-		#resp =  txt.readline
-		#etiq =  txt.readline
-		#add(preg,resp,etiq)
-	#	txt.close
-#	end
-##
+	def fillList
+		txt = File.new("preguntas.txt","r")				
+		preg = txt.readline
+		resp =  txt.readline
+		etiq =  txt.readline
+		add(preg,resp,etiq)
+		txt.close
+	end
+
 end

@@ -1,6 +1,16 @@
-require 'sinatra'
-Class MyApp
+require 'rubygems'
+require 'sinatra/base'
+
+$user=Users.new()
+
+class MyApp < Sinatra::Base
 	get '/' do
 		"Hello World"
 	end
+
+	get '/user' do
+		usr = user.
+		
+
 end
+
