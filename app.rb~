@@ -1,16 +1,19 @@
 require 'rubygems'
 require 'sinatra/base'
 
-$user=Users.new()
-
 class MyApp < Sinatra::Base
+
+	$user = Users.new()
+
 	get '/' do
 		"Hello World"
 	end
 
-	get '/user' do
-		usr = user.
-		
+	get '/user/:data' do
+		temp = params[:data]
+		usr = user.validateUser(temp)
+		usr
+	end
 
 end
 

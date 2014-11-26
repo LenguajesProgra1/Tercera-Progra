@@ -17,9 +17,9 @@ class Users
     end
 
 	def loadUsers()
-		usr = File.new("users.txt","r")				
-		user = txt.readline
-		pass =  txt.readline
+		usr = File.open("users.txt","r")				
+		user = usr.readline
+		pass =  usr.readline
 		add(user,pass)
 		usr.close
 	end
@@ -38,7 +38,8 @@ class Users
 	end
 
 	def validateUser(data)
-		
+		user = data.split(",")
+		pass = data.split(" ")
 		current = @head
 		while current.next_node != nil
 			if(current.user == user)

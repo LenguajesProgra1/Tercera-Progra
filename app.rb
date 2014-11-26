@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'sinatra/base'
-
-$user=Users.new()
-
+require "./users"
 class MyApp < Sinatra::Base
+
+	$user = Users.new()
+
 	get '/' do
 		"Hello World"
 	end

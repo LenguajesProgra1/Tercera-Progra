@@ -17,11 +17,14 @@ class Users
     end
 
 	def loadUsers()
-		usr = File.new("users.txt","r")				
-		user = txt.readline
-		pass =  txt.readline
-		add(user,pass)
-		usr.close
+		File.open("users.txt","r") do |f|
+			while line = f.gets
+				linea = line.split(",")
+				user = linea[0]
+				pass =  line[1]
+				add(user,pass)			
+			end		
+		end
 	end
     
     def add(user,pass)
