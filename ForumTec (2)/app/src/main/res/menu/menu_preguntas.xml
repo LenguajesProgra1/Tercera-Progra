@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.seastec.forumtec.PreguntasActivity">
+
+    <item android:id="@+id/action_preguntar" android:title="Preguntar"
+        android:orderInCategory="100" android:showAsAction="ifRoom|withText"></item>
+
+    <item android:id="@+id/action_sing_out" android:title="Sing out"
+        android:orderInCategory="100" android:showAsAction="ifRoom|withText"></item>
+
+</menu>
