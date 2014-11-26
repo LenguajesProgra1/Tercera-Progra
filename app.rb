@@ -1,8 +1,10 @@
-require 'sinatra'
-#require_relative "users"
-require_relative "questions"
-#require_relative "answers"
+require 'rubygems'
+require 'sinatra/base'
 
-get '/' do
-	"Hello World"
+
+class MyApp < Sinatra::Base
+	get '/' do
+		"Hello World"
+	end
 end
+
