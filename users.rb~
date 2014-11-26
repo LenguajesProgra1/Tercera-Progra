@@ -17,11 +17,14 @@ class Users
     end
 
 	def loadUsers()
-		usr = File.open("users.txt","r")				
-		user = usr.readline
-		pass =  usr.readline
-		add(user,pass)
-		usr.close
+		File.open("users.txt","r") do |f|
+			while line = f.gets
+				linea = line.split(",")
+				user = linea[0]
+				pass =  line[1]
+				add(user,pass)			
+			end		
+		end
 	end
     
     def add(user,pass)
@@ -41,6 +44,11 @@ class Users
 		user = data.split(",")
 		pass = data.split(" ")
 		current = @head
+		if(current.user == user)
+			if(current.pass == pass)
+				return 1
+			else
+				return 0
 		while current.next_node != nil
 			if(current.user == user)
 				if(current.pass == pass)

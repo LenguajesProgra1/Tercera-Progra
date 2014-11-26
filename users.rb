@@ -44,18 +44,24 @@ class Users
 		user = data.split(",")
 		pass = data.split(" ")
 		current = @head
-		while current.next_node != nil
-			if(current.user == user)
-				if(current.pass == pass)
-					return 1
-				else
-					return 0
-				end
+		if(current.user == user)
+			if(current.pass == pass)
+				return 1
 			else
-				current = current.next_node
+				while current.next_node != nil
+					if(current.user == user)
+						if(current.pass == pass)
+							return 1
+						else
+							return 0
+						end
+					else
+						current = current.next_node
+					end
+				end
+				return 2
 			end
 		end
-		return 2
 	end
 
 
