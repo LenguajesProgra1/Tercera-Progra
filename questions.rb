@@ -1,0 +1,62 @@
+class QuestionNode
+
+    attr_accessor :id, :question, :answer, :tag, :next_node
+	@@cont=0
+    def initialize (question,answer,tag,next_node)
+        @question = question
+		@answer = answer
+		@tag = tag
+        @next_node = next_node
+		@id = @@cont
+		@@cont += 1
+        puts question.to_s + " ingresado!"
+    end
+end
+
+class LinkedList
+
+    def initialize (question,answer,tag)
+        @head = QuestionNode.new(question,answer,tag,nil)
+    end
+    
+    def add(question,answer,tag)
+        current = @head
+        while current.next_node != nil
+            current = current.next_node
+        end 
+        current.next_node = QuestionNode.new(question,answer,tag,nil)
+        self   
+    end
+
+	def addAnswer(questId,answer)
+		current = @head
+		while current.questId != questId
+			current = current.next_node
+		end
+		while current.answer.next_node != nil
+			current = current.next_node
+		end
+		current.next_node = AnswerNode.new(answer,nil)
+		self
+	end
+
+	def display
+        current = @head
+        while current.next_node != nil 
+			puts current.id.to_s << ": Pregunta: " << current.question.to_s << "\nRespuesta: " << current.answer.to_s << "\nEtiqueta: " << current.tag.to_s
+            current = current.next_node
+        end
+			puts current.id.to_s << ": Pregunta: " << current.question.to_s << "\nRespuesta: " << current.answer.to_s << "\nEtiqueta: " << current.tag.to_s
+            current = current.next_node
+    end
+
+	def fillList
+		txt = File.new("preguntas.txt","r")				
+		preg = txt.readline
+		resp =  txt.readline
+		etiq =  txt.readline
+		add(preg,resp,etiq)
+		txt.close
+	end
+
+end
