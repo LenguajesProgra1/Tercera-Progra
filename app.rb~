@@ -11,7 +11,7 @@ class MyApp < Sinatra::Base
 
 	get '/user/:data' do
 		temp = params[:data]
-		usr = user.validateUser(temp)
+		usr = $user.validateUser(temp)
 		usr
 	end
 

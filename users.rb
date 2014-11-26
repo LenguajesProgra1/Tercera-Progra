@@ -21,7 +21,7 @@ class Users
 			while line = f.gets
 				linea = line.split(",")
 				user = linea[0]
-				pass =  line[1]
+				pass = linea[1]
 				add(user,pass)			
 			end		
 		end
@@ -41,26 +41,31 @@ class Users
 	end
 
 	def validateUser(data)
-		user = data.split(",")
-		pass = data.split(" ")
+		datos = data.split(",")
+		user = datos[0]
+		pass = datos[1]
 		current = @head
+		puts "User: " << current.user << "Pass: " << current.pass
+		puts "User: " << user << "Pass: " << pass
 		if(current.user == user)
-			if(current.pass == pass)
-				return 1
+			if(current.pass==pass)
+				return "1"
 			else
-				while current.next_node != nil
-					if(current.user == user)
-						if(current.pass == pass)
-							return 1
-						else
-							return 0
-						end
-					else
-						current = current.next_node
-					end
-				end
-				return 2
+				return "0"
 			end
+		else
+			while current.next_node != nil
+				if(current.user == user)
+					if(current.pass == pass)
+						return 1
+					else
+						return 0
+					end
+				else
+					current = current.next_node
+				end
+			end
+			return "2"
 		end
 	end
 
